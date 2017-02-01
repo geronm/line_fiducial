@@ -1,6 +1,6 @@
 BUILD_DIR = build
 
-CFLAGS_MAIN += `pkg-config --cflags opencv eigen3`
+CFLAGS_MAIN += `pkg-config --cflags opencv eigen3 yaml-cpp`
 LIBS_MAIN += `pkg-config --libs opencv eigen3`
 # LIB_OBJS = $(addprefix $(BUILD_DIR)/ CaptureFrm.o MarkerTrack.o VideoRecord.o WindowDisplay.o)
 
@@ -33,7 +33,7 @@ all: prepare $(LIB_OBJS) $(BUILD_DIR)/line_detection
 #	g++ -O2 $(CFLAGS_DRIVER) $(INCLUDES_DRIVER) gelsight_compare_heightmaps.cpp $(LIBS_DRIVER) -o $@
 
 $(BUILD_DIR)/line_detection: LineDetection.cpp
-	g++ -O2 $(CFLAGS_DRIVER) $(INCLUDES_DRIVER) LineDetection.cpp $(LIBS_DRIVER) -o $@
+	g++ -O2 $(CFLAGS_DRIVER) $(INCLUDES_DRIVER) LineDetection.cpp $(LIBS_DRIVER) -o $@ -lyaml-cpp
 
 $(BUILD_DIR)/%.o: %.cpp
 	g++ -O2 -c $(CFLAGS_CAPTUREFRM) $(INCLUDES) $< -o $@

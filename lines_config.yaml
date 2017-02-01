@@ -1,0 +1,18 @@
+# Config file for vision-based parallel fiducial pose estimator.
+
+shape:
+  vertices: # [[x,y], intensity]
+    - [[0.0,0.0], 1.0]
+    - [[0.0,0.412], 0.5] # - smooth, but: [2.2935,0.412]
+    - [[0.0,4.588], 0.5]
+    - [[0.0,5.0], 1.0]
+    - [[5.0,5.0], 0.5]
+
+roi:
+  - [1000,550]
+  - [1800,550]
+  - [1800,1000]
+  - [1000,1000]
+
+edge_detection:
+  param1: 0
